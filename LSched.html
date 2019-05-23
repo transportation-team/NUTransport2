@@ -1,36 +1,38 @@
 <html>
 <header>
-   <title>L - Schedule</title>
-   <link rel="stylesheet" type="text/css" href="styling.css"/>
-   <!--this is just a temp stylesheet below-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>L - Schedule</title>
+    <link rel="stylesheet" type="text/css" href="styling.css" />
+
+    <!--this is just a temp stylesheet below-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </header>
+
 <body>
     <div class='header'>
         <h1>NU TRANSPORTATION GUIDE</h1>
-    </div>    
+    </div>
     <div class="navbar">
         <a href="index.html">Home</a>
         <div class="dropdown">
-            <button class="dropbtn">L Train 
+            <button class="dropbtn">L Train
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 <a href="LInfo.html">L Info</a> |
                 <a href="LSched.html">L Schedule</a> |
             </div>
-        </div> 
+        </div>
         <div class="dropdown">
-            <button class="dropbtn">Metra Train 
+            <button class="dropbtn">Metra Train
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 <a href="MetraInfo.html">Metra Info</a> |
                 <a href="MetraSched.html">Metra Schedule</a> |
             </div>
-        </div> 
+        </div>
         <div class="dropdown">
-            <button class="dropbtn">CTA Buses 
+            <button class="dropbtn">CTA Buses
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -49,52 +51,22 @@
                 <a href="IntercampusSched.html">Intercampus Schedule</a> |
                 <a href="ShopSched.html">Shop 'n Ride Schedule</a> |
             </div>
-        </div>   
+        </div>
     </div>
     <h2>L - Schedule</h2>
     <div class="left">
         <h3 class=info-header>Transportation Schedule</h3>
-<div class = table-box>
-<table class="table">
-	<thead>
-	<tr>
-		<th>Stop</th><th>First Name</th><th>Last Name</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td>235312</td>
-		<td>John</td>
-		<td>Doe</td>
-	</tr>
-	<tr>
-		<td>453123</td>
-		<td>Mark</td>
-		<td>Jones</td>
-	</tr>
-	<tr>
-		<td>998332</td>
-		<td>Jonathan</td>
-		<td>Smith</td>
-	</tr>
-	<tr>
-		<td>345612</td>
-		<td>Andrew</td>
-		<td>McArthur</td>
-	</tr>
-	<tr>
-		<td>453123</td>
-		<td>Adam</td>
-		<td>Fuller</td>
-	</tr>
-	<tr>
-		<td>998332</td>
-		<td>Tyler</td>
-		<td>Watt</td>
-	</tr>
-	</tbody>
-</table>
-</div>
+        <form>
+            <input id="textbox" type="text" placeholder="Destination Time, e.g. 12:47"/>
+        </form>
+        <select name="Destination">
+                <option value="Linden">Linden</option>
+                <option value="Noyes">Noyes</option>
+                <option value="Central">Central</option>
+                <option value="Howard">Howard</option>
+              </select>
+        <input type="button" value="Generate a schedule table." onclick="generate_table()">
+
     </div>
     <div class='map'>
         <h3>Name for L Map</h3>
@@ -103,5 +75,7 @@
     <div class='bottom-bar'>
         NU Transportation Guide
     </div>
+    <script src="LSchedule.2.js"></script>
 </body>
+
 </html>
