@@ -1,6 +1,6 @@
 
 
-
+var x = 0;
 function generate_table() {
     // get the reference for the body
     var body = document.getElementsByClassName("left")[0];
@@ -60,7 +60,6 @@ function generate_table() {
 
     var currStop;
     // creating all cells
-
     var row = document.createElement("tr");
     var cell = document.createElement("th");
     var cellText = document.createTextNode("Trips before Arrival");
@@ -75,7 +74,6 @@ function generate_table() {
         row.appendChild(cell);
     }
     tblBody.appendChild(row);
-
     for (var i = 0; i < lastTrip; i++) {
         // creates a table row
         var row = document.createElement("tr");
@@ -105,9 +103,14 @@ function generate_table() {
     tbl.appendChild(tblBody);
     tblBody.classList.add("table");
     // appends <table> into <body>
-    body.appendChild(tbl);
+    if(x==0)
+    {
+        body.appendChild(tbl);
+        x = x +1;
+    }
     // sets the border attribute of tbl to 2;
     tbl.setAttribute("border", "2");
+   
 }
 
 function init() {
