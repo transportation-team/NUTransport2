@@ -3,7 +3,7 @@
 
 function generate_table() {
     // get the reference for the body
-    var body = document.getElementsByClassName("left")[0];
+    var body = document.getElementsByClassName("table-box")[0];
 
     // creates a <table> element and a <tbody> element
     var tbl = document.createElement("table");
@@ -11,10 +11,10 @@ function generate_table() {
 
     var myObj = new Object();
     myObj.stop = ["Linden", "Noyes", "Central", "Howard",];
-    myObj.Linden = { "pmSwitch": 4, "times": ["12:20", "04:40", "06:10", "11:30", "01:00", "05:00"] }
-    myObj.Noyes = { "pmSwitch": 4, "times": ["12:30", "04:50", "06:30", "11:45", "01:10", "05:15"] }
-    myObj.Central = { "pmSwitch": 4, "times": ["12:50", "05:00", "06:40", "11:55", "01:20", "05:25"] }
-    myObj.Howard = { "pmSwitch": 3, "times": ["12:55", "05:05", "06:50", "12:05", "01:30", "05:40"] }
+    myObj.Linden = { "pmSwitch": 4, "times": ["12:20 AM", "04:40 AM", "06:10 AM", "11:30 AM", "01:00 PM", "05:00 PM"] }
+    myObj.Noyes = { "pmSwitch": 4, "times": ["12:30 AM", "04:50 AM", "06:30 AM", "11:45 AM", "01:10 PM", "05:15 PM"] }
+    myObj.Central = { "pmSwitch": 4, "times": ["12:50 AM", "05:00 AM", "06:40 AM", "11:55 AM", "01:20 PM", "05:25 PM"] }
+    myObj.Howard = { "pmSwitch": 3, "times": ["12:55 AM", "05:05 AM", "06:50 AM", "12:05 PM", "01:30 PM", "05:40 PM"] }
     myObj.numTimes = 6;
     var NUMSTOPS = 4;
 
@@ -104,6 +104,7 @@ function generate_table() {
     // put the <tbody> in the <table>
     tbl.appendChild(tblBody);
     tblBody.classList.add("table");
+    tblBody.classList.add("table-box");
     // appends <table> into <body>
     body.appendChild(tbl);
     // sets the border attribute of tbl to 2;

@@ -56,20 +56,23 @@
     <h2>L - Schedule</h2>
     <div class="left">
         <h3 class=info-header>Transportation Schedule</h3>
-        <form>
-            <input id="textbox" type="text" placeholder="Destination Time, e.g. 12:47"/>
-        </form>
-        <select name="Destination">
+        <div class="table-box">
+            <form>
+                <input id="textbox" type="text" placeholder="Destination Time, e.g. 12:47" />
+            </form>
+            <select name="Destination">
                 <option value="Linden">Linden</option>
                 <option value="Noyes">Noyes</option>
                 <option value="Central">Central</option>
                 <option value="Howard">Howard</option>
-              </select>
-        <input type="button" value="Generate a schedule table." onclick="generate_table()">
-
+            </select>
+            <div class="button-box">
+                <input type="button" value="Generate a schedule table." onclick="generate_table()">
+            </div>
+        </div>
     </div>
     <div class='map'>
-        <h3>Name for L Map</h3>
+        <h3>L Train Map</h3>
         <img src='Images/TransitMap.jpg' class='L-map'>
     </div>
     <div class='bottom-bar'>
