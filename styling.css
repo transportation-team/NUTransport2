@@ -219,6 +219,16 @@ padding: 12px;
 border-style: solid;
 border-color: #3A3A3A;
 background-color: #ffffff;
-padding-right:80px;
+padding-right:65px;
 }
 
+.purple-box{
+  border-width: 2px;
+  border-style: solid;
+  border-color: grey;
+  padding: 5px;
+  padding-top: 10px;
+  width: 30%;
+  margin-bottom: 10px;
+  background-color: #f1ecd9;
+}
