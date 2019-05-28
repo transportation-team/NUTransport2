@@ -10,19 +10,20 @@ function generate_table() {
     var tblBody = document.createElement("tbody");
 
     var myObj = new Object();
-    myObj.stop = ["Linden", "Noyes", "Central", "Howard",];
+    myObj.stop = ["Linden", "Central", "Noyes", "Howard",];
     myObj.Linden = { "pmSwitch": 4, "times": ["0:20", "04:40", "06:10", "11:30", "01:00", "05:00"] }
-    myObj.Noyes = { "pmSwitch": 4, "times": ["0:30", "04:50", "06:30", "11:45", "01:10", "05:15"] }
-    myObj.Central = { "pmSwitch": 4, "times": ["0:50", "05:00", "06:40", "11:55", "01:20", "05:25"] }
+    myObj.Central = { "pmSwitch": 4, "times": ["0:30", "04:50", "06:30", "11:45", "01:10", "05:15"] }
+    myObj.Noyes = { "pmSwitch": 4, "times": ["0:50", "05:00", "06:40", "11:55", "01:20", "05:25"] }
     myObj.Howard = { "pmSwitch": 3, "times": ["0:55", "05:05", "06:50", "0:05", "01:30", "05:40"] }
     myObj.numTimes = 6;
     var NUMSTOPS = 4;
 
     //Suppose we wanted to arrive at Central by 3:00 pm, from Linden
     var destination = "Central";
-    var textboxValue = document.getElementById("textbox").value;
+    var textboxValue = document.getElementById("time12").value;
     //var destination = textboxValue;
     var time = textboxValue;
+    console.log(time);
     time = time.split(":");
     var timeConverted;
     var pm = false;
@@ -31,7 +32,8 @@ function generate_table() {
 
     var i = 0;
     var continueLoop = true;
-    var currTime = "00:00";
+    var today = new Date();
+    var currTime = today.getHours() + ":" + today.getMinutes();
 
     while (continueLoop == true) {
         currTime = myObj[destination]['times'][i];
