@@ -24,9 +24,10 @@ function generate_table() {
     //var destination = textboxValue;
     var time = textboxValue;
     console.log(time);
+
     time = time.split(":");
     var timeConverted;
-    var pm = false;
+    var pm = true;
     timeConverted = parseInt(time[0]) * 60 + parseInt(time[1]);
     if (pm) { timeConverted = timeConverted + 12 * 60 } 
 
@@ -108,14 +109,22 @@ function generate_table() {
     tbl.appendChild(tblBody);
     tblBody.classList.add("table");
     tblBody.classList.add("table-box");
+    tbl.setAttribute("id", "remove");
+    tbl.setAttribute("border", "2");
     // appends <table> into <body>
     if(x==0)
     {
         body.appendChild(tbl);
         x = x +1;
     }
+    else
+    {
+        var tblRemove = document.getElementById("remove");
+        tblRemove.parentNode.removeChild(tblRemove);
+        body.appendChild(tbl);
+    }
     // sets the border attribute of tbl to 2;
-    tbl.setAttribute("border", "2");
+    
    
 }
 
