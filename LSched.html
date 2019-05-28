@@ -59,16 +59,16 @@
         <div class="table-box">
             <div class = "purple-box">
             <form>
-                <input id="textbox" type="text" placeholder="Destination Time, e.g. 12:47" />
+                <input type="time" id="time12" data-format="HH:mm a" data-template="HH : mm a" name="datetime">
             </form>
             <select name="Destination">
                 <option value="Linden">Linden</option>
-                <option value="Noyes">Noyes</option>
-                <option value="Central">Central</option>
+                <option value="Central">Noyes</option>
+                <option value="Noyes">Central</option>
                 <option value="Howard">Howard</option>
             </select>
             <div class="button-box">
-                <input type="button" value="Generate a schedule table." onclick="generate_table()">
+                <input type="button" value="Generate a schedule table" onclick="generate_table()">
             </div>
         </div>
         </div>
