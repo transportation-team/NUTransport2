@@ -23,13 +23,9 @@ function generate_table() {
     var textboxValue = document.getElementById("time12").value;
     //var destination = textboxValue;
     var time = textboxValue;
-    console.log(time);
 
     time = time.split(":");
-    var timeConverted;
-    var pm = true;
-    timeConverted = parseInt(time[0]) * 60 + parseInt(time[1]);
-    if (pm) { timeConverted = timeConverted + 12 * 60 } 
+    var timeConverted = parseInt(time[0]) * 60 + parseInt(time[1]);
 
     var i = 0;
     var continueLoop = true;
