@@ -82,7 +82,8 @@ function generate_table() {
 
     if (startIndex <= endIndex)
     {
-        for (var j = startIndex; j <= endIndex; j++) {
+        for (var j = startIndex; j <= endIndex; j++) 
+        {
             var cell = document.createElement("th");
             currStop = myObj.stop[j];
             var cellText = document.createTextNode(currStop);
@@ -111,6 +112,7 @@ function generate_table() {
                 var cellTime = new Date("August 19, 1975 "+myObj[currStop][times][i]);
                 cellTime = cellTime.toLocaleTimeString('en-US',{hour: '2-digit', minute:'2-digit'});
                 var cellText = document.createTextNode(cellTime);
+                console.log(cellText);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
             }
