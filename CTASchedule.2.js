@@ -11,15 +11,17 @@ function generate_table() {
     var tblBody = document.createElement("tbody");
 
     var myObj = new Object();
-    myObj.stop = ["Old Orchard Mall", "Noyes", "Foster", "Arch", "Chicago/Church", "Sherman/Church", "Ridge/Davis","Howard L Stop"];
-    myObj.OldOrch = {"times_north": ["1:01", "05:11", "06:56", "12:11", "13:36", "17:46"], "times_south": ["00:20", "04:40", "06:10", "11:30", "13:00", "17:00"] };
+    //since had to change names to one word things, could have something that every 
+    //capital letter encountered, we add a space 
+    myObj.stop = ["OldOrchardMall", "Noyes", "Foster", "Arch", "ChicagoChurch", "ShermanChurch", "RidgeDavis", "HowardLStop"];
+    myObj.OldOrchardMall = {"times_north": ["1:01", "05:11", "06:56", "12:11", "13:36", "17:46"], "times_south": ["00:20", "04:40", "06:10", "11:30", "13:00", "17:00"] };
     myObj.Noyes = {"times_north": ["1:00", "05:10", "06:55", "12:10", "13:35", "17:45"], "times_south": ["00:30", "04:50", "06:30", "11:45", "13:10", "17:15"] };
     myObj.Foster = {"times_north": ["00:59", "05:09", "06:54", "12:09", "13:34", "17:44"], "times_south": ["00:50", "05:00", "06:40", "11:55", "13:20", "17:25"] };
     myObj.Arch = {"times_north": ["00:58", "05:08", "06:53", "12:08", "13:33", "17:43"], "times_south": ["00:51", "05:01", "06:41", "11:56", "13:21", "17:26"] };
-    myObj.ChiChu = {"times_north": ["00:57", "05:07", "06:52", "12:07", "13:32", "17:42"], "times_south": ["00:52", "05:02", "06:42", "11:57", "13:22", "17:27"] };
-    myObj.SheChu = {"times_north": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"], "times_south": ["00:53", "05:03", "06:43", "11:58", "13:23", "17:28"] };
-    myObj.RidDav = {"times_north": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"], "times_south": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"] };
-    myObj.Howard = {"times_north": ["00:54", "05:04", "06:49", "12:04", "13:29", "17:39"], "times_south": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"] };
+    myObj.ChicagoChurch = {"times_north": ["00:57", "05:07", "06:52", "12:07", "13:32", "17:42"], "times_south": ["00:52", "05:02", "06:42", "11:57", "13:22", "17:27"] };
+    myObj.ShermanChurch = {"times_north": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"], "times_south": ["00:53", "05:03", "06:43", "11:58", "13:23", "17:28"] };
+    myObj.RidgeDavis = {"times_north": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"], "times_south": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"] };
+    myObj.HowardLStop = {"times_north": ["00:54", "05:04", "06:49", "12:04", "13:29", "17:39"], "times_south": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"] };
     myObj.numTimes = 6;
     var NUMSTOPS = 8;
 
@@ -30,6 +32,9 @@ function generate_table() {
     var times;
     startIndex = myObj.stop.indexOf(start);
     endIndex = myObj.stop.indexOf(destination);
+
+    console.log(start);
+
     if (startIndex > endIndex)
     {
         times = "times_north"

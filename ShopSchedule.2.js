@@ -11,19 +11,19 @@ function generate_table() {
     var tblBody = document.createElement("tbody");
 
     var myObj = new Object();
-    myObj.stop = ["Emerson/Maple", "Burger King", "Hinman", "Arch", "Foster", "Noyes", "Lincoln","Noyes L Stop","Civic Center","Ridge/Garnett","Old Orchard Mall","Howard/Sacramento"];
-    myObj.EmeMap = {"times_north": ["1:01", "05:11", "06:56", "12:11", "13:36", "17:46"], "times_south": ["00:20", "04:40", "06:10", "11:30", "13:00", "17:00"] };
-    myObj.Burger = {"times_north": ["1:00", "05:10", "06:55", "12:10", "13:35", "17:45"], "times_south": ["00:30", "04:50", "06:30", "11:45", "13:10", "17:15"] };
+    myObj.stop = ["EmersonMaple", "BurgerKing", "Hinman", "Arch", "Foster", "Noyes", "Lincoln","NoyesLStop","CivicCenter","RidgeGarnett","OldOrchardMall","HowardSacramento"];
+    myObj.EmersonMaple = {"times_north": ["1:01", "05:11", "06:56", "12:11", "13:36", "17:46"], "times_south": ["00:20", "04:40", "06:10", "11:30", "13:00", "17:00"] };
+    myObj.BurgerKing = {"times_north": ["1:00", "05:10", "06:55", "12:10", "13:35", "17:45"], "times_south": ["00:30", "04:50", "06:30", "11:45", "13:10", "17:15"] };
     myObj.Hinman = {"times_north": ["00:59", "05:09", "06:54", "12:09", "13:34", "17:44"], "times_south": ["00:50", "05:00", "06:40", "11:55", "13:20", "17:25"] };
     myObj.Arch = {"times_north": ["00:58", "05:08", "06:53", "12:08", "13:33", "17:43"], "times_south": ["00:51", "05:01", "06:41", "11:56", "13:21", "17:26"] };
     myObj.Foster = {"times_north": ["00:57", "05:07", "06:52", "12:07", "13:32", "17:42"], "times_south": ["00:52", "05:02", "06:42", "11:57", "13:22", "17:27"] };
     myObj.Noyes = {"times_north": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"], "times_south": ["00:53", "05:03", "06:43", "11:58", "13:23", "17:28"] };
     myObj.Lincoln = {"times_north": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"], "times_south": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"] };
-    myObj.NoyesL = {"times_north": ["00:54", "05:04", "06:49", "12:04", "13:29", "17:39"], "times_south": ["00:55", "05:06", "06:51", "12:06", "13:31", "17:41"] };
-    myObj.Civic = {"times_north": ["00:53", "05:03", "06:48", "12:03", "13:28", "17:38"], "times_south": ["00:55", "05:07", "06:52", "12:07", "13:32", "17:42"] };
-    myObj.RidGar = {"times_north": ["00:52", "05:02", "06:47", "12:02", "13:27", "17:37"], "times_south": ["00:55", "05:08", "06:53", "12:08", "13:33", "17:43"] };
-    myObj.OldOrch = {"times_north": ["00:51", "05:01", "06:46", "12:01", "13:26", "17:36"], "times_south": ["00:55", "05:09", "06:54", "12:09", "13:34", "17:44"] };
-    myObj.Howard = {"times_north": ["00:50", "05:00", "06:45", "12:00", "13:25", "17:35"], "times_south": ["00:55", "05:20", "06:55", "12:10", "13:35", "17:45"] };
+    myObj.NoyesLStop = {"times_north": ["00:54", "05:04", "06:49", "12:04", "13:29", "17:39"], "times_south": ["00:55", "05:06", "06:51", "12:06", "13:31", "17:41"] };
+    myObj.CivicCenter = {"times_north": ["00:53", "05:03", "06:48", "12:03", "13:28", "17:38"], "times_south": ["00:55", "05:07", "06:52", "12:07", "13:32", "17:42"] };
+    myObj.RidgeGarnett = {"times_north": ["00:52", "05:02", "06:47", "12:02", "13:27", "17:37"], "times_south": ["00:55", "05:08", "06:53", "12:08", "13:33", "17:43"] };
+    myObj.OldOrchardMall = {"times_north": ["00:51", "05:01", "06:46", "12:01", "13:26", "17:36"], "times_south": ["00:55", "05:09", "06:54", "12:09", "13:34", "17:44"] };
+    myObj.HowardSacramento = {"times_north": ["00:50", "05:00", "06:45", "12:00", "13:25", "17:35"], "times_south": ["00:55", "05:20", "06:55", "12:10", "13:35", "17:45"] };
   
     myObj.numTimes = 6;
     var NUMSTOPS = 12;
