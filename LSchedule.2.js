@@ -26,7 +26,9 @@ function generate_table() {
     var destination = document.getElementById("destination").value;
     var time = document.getElementById("time12").value;
     var times;
-    if (myObj.stop.indexOf(start) > myObj.stop.indexOf(destination))
+    startIndex = myObj.stop.indexOf(start);
+    endIndex = myObj.stop.indexOf(destination);
+    if (startIndex > endIndex)
     {
         times = "times_north"
     }
@@ -78,39 +80,79 @@ function generate_table() {
     cell.appendChild(cellText);
     row.appendChild(cell);
 
-    startIndex = myObj.stop.indexOf(start);
-    endIndex = myObj.stop.indexOf(destination)+1;
-    for (var j = startIndex; j < endIndex; j++) {
-        var cell = document.createElement("th");
-        currStop = myObj.stop[j];
-        var cellText = document.createTextNode(currStop);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-    }
-    tblBody.appendChild(row);
-    for (var i = lastTrip; i < lastTrip + numColumns; i++) {
-        // creates a table row
-        var row = document.createElement("tr");
-
-        var cell = document.createElement("td");
-        var text = i + 1 - lastTrip;
-        var cellText = document.createTextNode(text);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-
-        for (var j = startIndex; j < endIndex; j++) {
-            // Create a <td> element and a text node, make the text
-            // node the contents of the <td>, and put the <td> at
-            // the end of the table row
-            var cell = document.createElement("td");
+    if (startIndex <= endIndex)
+    {
+        for (var j = startIndex; j <= endIndex; j++) {
+            var cell = document.createElement("th");
             currStop = myObj.stop[j];
-            var cellText = document.createTextNode(myObj[currStop][times][i]);
+            var cellText = document.createTextNode(currStop);
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
-
-        // add the row to the end of the table body
         tblBody.appendChild(row);
+        for (var i = lastTrip; i < lastTrip + numColumns; i++) 
+        {
+            // creates a table row
+            var row = document.createElement("tr");
+
+            var cell = document.createElement("td");
+            var text = i + 1 - lastTrip;
+            var cellText = document.createTextNode(text);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+
+            for (var j = startIndex; j <= endIndex; j++) 
+            {
+                // Create a <td> element and a text node, make the text
+                // node the contents of the <td>, and put the <td> at
+                // the end of the table row
+                var cell = document.createElement("td");
+                currStop = myObj.stop[j];
+                var cellText = document.createTextNode(myObj[currStop][times][i]);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            // add the row to the end of the table body
+            tblBody.appendChild(row);
+        }
+    }
+    else
+    {
+        for (var j = startIndex; j >= endIndex; j--) {
+            var cell = document.createElement("th");
+            currStop = myObj.stop[j];
+            var cellText = document.createTextNode(currStop);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+        }
+        tblBody.appendChild(row);
+        for (var i = lastTrip; i < lastTrip + numColumns; i++) 
+        {
+            // creates a table row
+            var row = document.createElement("tr");
+
+            var cell = document.createElement("td");
+            var text = i + 1 - lastTrip;
+            var cellText = document.createTextNode(text);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+
+            for (var j = startIndex; j >= endIndex; j--) 
+            {
+                // Create a <td> element and a text node, make the text
+                // node the contents of the <td>, and put the <td> at
+                // the end of the table row
+                var cell = document.createElement("td");
+                currStop = myObj.stop[j];
+                var cellText = document.createTextNode(myObj[currStop][times][i]);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            // add the row to the end of the table body
+            tblBody.appendChild(row);
+        }
     }
 
     // put the <tbody> in the <table>
