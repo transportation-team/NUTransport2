@@ -135,7 +135,7 @@ function generate_table() {
             // creates a table row
             var row = document.createElement("tr");
 
-            var cell = document.createElement("td");
+            var cell = document.createElement("th");
             var text = i + 1 - lastTrip;
             var cellText = document.createTextNode(text);
             cell.appendChild(cellText);
