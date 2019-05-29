@@ -235,5 +235,13 @@ padding-right: 20px;
   background-color: #f1ecd9;
 }
 
+#LSched-purple-box{
+  width: 30%;
+}
+
+.starting-location{
+  padding-bottom: 10px;
+}
+
 tr { display: block; float: left; }
 th, td { display: block; }
