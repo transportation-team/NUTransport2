@@ -10,20 +10,30 @@ function generate_table() {
     var tblBody = document.createElement("tbody");
 
     var myObj = new Object();
-    myObj.stop = ["Linden", "Central", "Noyes", "Howard",];
-    myObj.Linden = {"times": ["0:20", "04:40", "06:10", "11:30", "01:00", "05:00"] }
-    myObj.Central = {"times": ["0:30", "04:50", "06:30", "11:45", "01:10", "05:15"] }
-    myObj.Noyes = {"times": ["0:50", "05:00", "06:40", "11:55", "01:20", "05:25"] }
-    myObj.Howard = { "times": ["0:55", "05:05", "06:50", "0:05", "01:30", "05:40"] }
+    myObj.stop = ["Linden", "Central", "Noyes", "Foster", "Davis", "Main", "Howard",];
+    myObj.Linden = {"times_north": ["1:01", "05:1", "06:56", "12:11", "13:36", "17:46"], "times_south": ["0:20", "04:40", "06:10", "11:30", "13:00", "17:00"] }
+    myObj.Central = {"times_north": ["1:00", "05:10", "06:55", "12:10", "13:35", "17:45"], "times_south": ["0:30", "04:50", "06:30", "11:45", "13:10", "17:15"] }
+    myObj.Noyes = {"times_north": ["0:59", "05:09", "06:54", "12:09", "13:34", "17:44"], "times_south": ["0:50", "05:00", "06:40", "11:55", "13:20", "17:25"] }
+    myObj.Foster = {"times_north": ["0:58", "05:08", "06:53", "12:08", "13:33", "17:43"], "times_south": ["0:51", "05:01", "06:41", "11:56", "13:21", "17:26"] }
+    myObj.Davis = {"times_north": ["0:57", "05:07", "06:52", "12:07", "13:32", "17:42"], "times_south": ["0:52", "05:02", "06:42", "11:57", "13:22", "17:27"] }
+    myObj.Main = {"times_north": ["0:56", "05:06", "06:51", "12:06", "13:31", "17:41"], "times_south": ["0:53", "05:03", "06:43", "11:58", "13:23", "17:28"] }
+    myObj.Howard = {"times_north": ["0:55", "05:05", "06:50", "12:05", "13:30", "17:40"], "times_south": ["0:55", "05:05", "06:50", "12:05", "13:30", "17:40"] }
     myObj.numTimes = 6;
-    var NUMSTOPS = 4;
+    var NUMSTOPS = 7;
 
     //Suppose we wanted to arrive at Central by 3:00 pm, from Linden
-    var destination = document.getElementById("location").value;
-    console.log(destination);
-    var textboxValue = document.getElementById("time12").value;
-    //var destination = textboxValue;
-    var time = textboxValue;
+    var start = document.getElementById("start").value;
+    var destination = document.getElementById("destination").value;
+    var time = document.getElementById("time12").value;
+    var times;
+    if (myObj.stop.indexOf(start) > myObj.stop.indexOf(destination))
+    {
+        times = "times_north"
+    }
+    else
+    {
+        times = "times_south"
+    }
 
     time = time.split(":");
     var timeConverted = parseInt(time[0]) * 60 + parseInt(time[1]);
@@ -35,7 +45,7 @@ function generate_table() {
 
     //finds first time after when input time is
     while (continueLoop == true) {
-        currTime = myObj[destination]['times'][i];
+        currTime = myObj[start][times][i];
         currTime = currTime.split(":")
         var currTimeConverted = parseInt(currTime[0]) * 60 + parseInt(currTime[1]);
         if (currTimeConverted < timeConverted) {
@@ -68,7 +78,9 @@ function generate_table() {
     cell.appendChild(cellText);
     row.appendChild(cell);
 
-    for (var j = 0; j < NUMSTOPS; j++) {
+    startIndex = myObj.stop.indexOf(start);
+    endIndex = myObj.stop.indexOf(destination)+1;
+    for (var j = startIndex; j < endIndex; j++) {
         var cell = document.createElement("th");
         currStop = myObj.stop[j];
         var cellText = document.createTextNode(currStop);
@@ -86,13 +98,13 @@ function generate_table() {
         cell.appendChild(cellText);
         row.appendChild(cell);
 
-        for (var j = 0; j < NUMSTOPS; j++) {
+        for (var j = startIndex; j < endIndex; j++) {
             // Create a <td> element and a text node, make the text
             // node the contents of the <td>, and put the <td> at
             // the end of the table row
             var cell = document.createElement("td");
             currStop = myObj.stop[j];
-            var cellText = document.createTextNode(myObj[currStop]['times'][i]);
+            var cellText = document.createTextNode(myObj[currStop][times][i]);
             cell.appendChild(cellText);
             row.appendChild(cell);
         }

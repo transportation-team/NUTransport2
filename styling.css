@@ -186,8 +186,8 @@ text-align: center;
 /* Schedule page  */
 
 .table-box{
-padding-left:18px;
-padding-top: 10px;
+  padding-left:18px;
+  padding-top: 10px;
 }
 
 .button-box{
@@ -228,7 +228,7 @@ padding-right:65px;
   border-color: grey;
   padding: 5px;
   padding-top: 10px;
-  width: 30%;
+  width: 40%;
   margin-bottom: 10px;
   background-color: #f1ecd9;
 }
