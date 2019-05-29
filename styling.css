@@ -223,6 +223,8 @@ padding-right: 20px;
 }
 
 .purple-box{
+  text-align: right;
+  font-size: 14px;
   border-width: 2px;
   border-style: solid;
   border-color: grey;
