@@ -53,15 +53,50 @@
     </div>
     <h2>CTA Buses - Schedule</h2>
     <div class="left">
-            <h3 class=info-header>Transportation Schedule</h3>
+        <h3 class=info-header>Transportation Schedule</h3>
+        <div class="table-box">
+            <div class = "purple-box">
+                <form>
+                    Start time: <input type="time" id="time12" data-format="HH:mm a" data-template="HH : mm a" name="datetime">
+                </form>
+                <div>
+                    Starting location:
+                    <select id="start" name="start">
+                        <option value="Linden">Linden</option>
+                        <option value="Central">Central</option>
+                        <option value="Noyes">Noyes</option>
+                        <option value="Foster">Foster</option>
+                        <option value="Davis">Davis</option>
+                        <option value="Main">Main</option>
+                        <option value="Howard">Howard</option>
+                    </select>
+                </div>
+                <div>
+                    Destination:
+                    <select id="destination" name="Destination">
+                        <option value="Linden">Linden</option>
+                        <option value="Central">Central</option>
+                        <option value="Noyes">Noyes</option>
+                        <option value="Foster">Foster</option>
+                        <option value="Davis">Davis</option>
+                        <option value="Main">Main</option>
+                        <option value="Howard">Howard</option>
+                    </select>
+                </div>
+                <div class="button-box">
+                    <input type="button" value="Generate a schedule table" onclick="generate_table()">
+                </div>
+            </div>
         </div>
-        <div class='map'>
-            <h3>This will end up as many pics of L stuff</h3>
-            <img src='Images/TransitMap.jpg' class='L-map'>
-        </div>
-        <div class='bottom-bar'>
-            NU Transportation Guide
     </div>
+    <div class='map'>
+        <h3>CTA Bus Map</h3>
+        <img src='Images/TransitMap.jpg' class='L-map'>
+    </div>
+    <div class='bottom-bar'>
+        NU Transportation Guide
+    </div>
+    <script src="CTASchedule.2.js"></script>
 </body>
-</html>
 
+</html>
