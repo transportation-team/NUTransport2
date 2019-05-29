@@ -96,7 +96,7 @@ function generate_table() {
             // creates a table row
             var row = document.createElement("tr");
 
-            var cell = document.createElement("td");
+            var cell = document.createElement("th");
             var text = i + 1 - lastTrip;
             var cellText = document.createTextNode(text);
             cell.appendChild(cellText);
@@ -112,7 +112,6 @@ function generate_table() {
                 var cellTime = new Date("August 19, 1975 "+myObj[currStop][times][i]);
                 cellTime = cellTime.toLocaleTimeString('en-US',{hour: '2-digit', minute:'2-digit'});
                 var cellText = document.createTextNode(cellTime);
-                console.log(cellText);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
             }
@@ -151,8 +150,6 @@ function generate_table() {
                 currStop = myObj.stop[j];
                 var cellTime = new Date("August 19, 1975 "+myObj[currStop][times][i]);
                 cellTime = cellTime.toLocaleTimeString('en-US',{hour: '2-digit', minute:'2-digit'});
-                //attempt to make AM/PM on same line
-                //cellTime = cellTime.replace(' ','&nbsp');
                 var cellText = document.createTextNode(cellTime);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
