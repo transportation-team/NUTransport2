@@ -53,9 +53,9 @@ function generate_table() {
     //Now i-1 is the correct entry
     var lastTrip = i;
     var numColumns = 5;
-    if (numColumns > lastTrip) 
+    if (numColumns + lastTrip > myObj.numTimes) 
     {
-        numColumns = lastTrip;
+        numColumns = myObj.numTimes - lastTrip;
     }
     //    var firstTrip = max(0, lastTrip-5);
 
@@ -64,7 +64,7 @@ function generate_table() {
     // creating all cells
     var row = document.createElement("tr");
     var cell = document.createElement("th");
-    var cellText = document.createTextNode("Trips before Arrival");
+    var cellText = document.createTextNode("Upcoming Trips");
     cell.appendChild(cellText);
     row.appendChild(cell);
 
@@ -76,12 +76,12 @@ function generate_table() {
         row.appendChild(cell);
     }
     tblBody.appendChild(row);
-    for (var i = lastTrip - numColumns; i < lastTrip; i++) {
+    for (var i = lastTrip; i < lastTrip + numColumns; i++) {
         // creates a table row
         var row = document.createElement("tr");
 
         var cell = document.createElement("td");
-        var text = lastTrip - i;
+        var text = i + 1 - lastTrip;
         var cellText = document.createTextNode(text);
         cell.appendChild(cellText);
         row.appendChild(cell);
