@@ -232,3 +232,6 @@ padding-right:65px;
   margin-bottom: 10px;
   background-color: #f1ecd9;
 }
+
+tr { display: block; float: left; }
+th, td { display: block; }
