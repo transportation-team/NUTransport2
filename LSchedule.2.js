@@ -149,6 +149,8 @@ function generate_table() {
                 currStop = myObj.stop[j];
                 var cellTime = new Date("August 19, 1975 "+myObj[currStop][times][i]);
                 cellTime = cellTime.toLocaleTimeString('en-US',{hour: '2-digit', minute:'2-digit'});
+                //attempt to make AM/PM on same line
+                //cellTime = cellTime.replace(' ','&nbsp');
                 var cellText = document.createTextNode(cellTime);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
