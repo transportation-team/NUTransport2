@@ -104,7 +104,7 @@ function generate_table() {
 
             var cell = document.createElement("th");
             var text = i + 1 - lastTrip;
-            var cellText = document.createTextNode(text);
+            var cellText = document.createTextNode("Departure " + text);
             cell.appendChild(cellText);
             row.appendChild(cell);
 
@@ -143,7 +143,7 @@ function generate_table() {
 
             var cell = document.createElement("th");
             var text = i + 1 - lastTrip;
-            var cellText = document.createTextNode(text);
+            var cellText = document.createTextNode("Departure " + text);
             cell.appendChild(cellText);
             row.appendChild(cell);
 
