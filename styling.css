@@ -122,10 +122,10 @@ h2 {
     color: white;
     padding: 20px 0px;
     border-top: 30px solid white;
-    position: fixed;
+    /* position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 100%; */
 }
 
 /* Info page  */
