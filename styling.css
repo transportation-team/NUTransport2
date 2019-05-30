@@ -158,6 +158,16 @@ h2 {
   width: 87%;
 }
 
+.CTA-map {
+  width: 87%;
+  border: 1px solid black;
+}
+
+.Metra-map {
+  width: 47%;
+  border: 1px solid black;
+}
+
 .insta {
   width: 40%;
   float: left;
