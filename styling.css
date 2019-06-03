@@ -112,6 +112,7 @@ h2 {
 .transit-map {
     width: 90%;
     height: 90%;
+    border: 1px solid black;
 }
 
 
@@ -156,6 +157,7 @@ h2 {
 
 .L-map {
   width: 60%;
+  border: 1px solid black;
 }
 
 .Bus-map {
