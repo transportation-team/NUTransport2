@@ -123,10 +123,12 @@ h2 {
     color: white;
     padding: 20px 0px;
     border-top: 30px solid white;
-    /* position: fixed;
+    
+    position: relative;
     left: 0;
-    bottom: 0;
-    width: 100%; */
+    bottom: 0px;
+    width: 100%; 
+    
 }
 
 /* Info page  */
@@ -263,7 +265,7 @@ padding-right: 20px;
 }
 
 #campus-purple-box{
-  width: 30%;
+  width: 38%;
 }
 
 .starting-location{
