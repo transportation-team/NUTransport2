@@ -127,8 +127,11 @@ h2 {
     position: relative;
     left: 0;
     bottom: 0px;
-    width: 100%; 
-    
+    width: 100%;   
+}
+
+.home-info {
+  font-size: 1.3em;
 }
 
 /* Info page  */
@@ -214,7 +217,7 @@ text-align: center;
 }
 
 .button-box{
-  padding-bottom:10px;
+  padding-bottom: 10px;
   padding-top: 20px;
   font-size: 15px;
 }
