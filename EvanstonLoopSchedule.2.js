@@ -34,154 +34,161 @@ function generate_table() {
     var start = document.getElementById("start").value;
     var destination = document.getElementById("destination").value;
     var time = document.getElementById("time12").value;
-    var times;
-    startIndex = myObj.stop.indexOf(start);
-    endIndex = myObj.stop.indexOf(destination);
-    if (startIndex > endIndex)
+    if (time.toString()=="")
     {
-        times = "times_north"
+        timeform.style.borderColor = "red";
     }
     else
     {
-        times = "times_south"
-    }
+        timeform.style.borderColor = null;
+        var times;
+        startIndex = myObj.stop.indexOf(start);
+        endIndex = myObj.stop.indexOf(destination);
+        if (startIndex > endIndex)
+        {
+            times = "times_north"
+        }
+        else
+        {
+            times = "times_south"
+        }
 
-    time = time.split(":");
-    var timeConverted = parseInt(time[0]) * 60 + parseInt(time[1]);
+        time = time.split(":");
+        var timeConverted = parseInt(time[0]) * 60 + parseInt(time[1]);
 
-    var i = 0;
-    var continueLoop = true;
-    var today = new Date();
-    var currTime = today.getHours() + ":" + today.getMinutes();
+        var i = 0;
+        var continueLoop = true;
+        var today = new Date();
+        var currTime = today.getHours() + ":" + today.getMinutes();
 
-    //finds first time after when input time is
-    while (continueLoop == true) {
-        currTime = myObj[start][times][i];
-        currTime = currTime.split(":")
-        var currTimeConverted = parseInt(currTime[0]) * 60 + parseInt(currTime[1]);
-        if (currTimeConverted < timeConverted) {
-            i = i + 1;
+        //finds first time after when input time is
+        while (continueLoop == true) {
+            currTime = myObj[start][times][i];
+            currTime = currTime.split(":")
+            var currTimeConverted = parseInt(currTime[0]) * 60 + parseInt(currTime[1]);
+            if (currTimeConverted < timeConverted) {
+                i = i + 1;
+            }
+            else {
+                continueLoop = false;
+            }
+            if (i == myObj.numTimes) {
+                continueLoop = false;
+            }
+        }
+
+
+        //Now i-1 is the correct entry
+        var lastTrip = i;
+        var numColumns = 5;
+        if (numColumns + lastTrip > myObj.numTimes) 
+        {
+            numColumns = myObj.numTimes - lastTrip;
+        }
+        //    var firstTrip = max(0, lastTrip-5);
+
+
+        var currStop;
+        // creating all cells
+        var row = document.createElement("tr");
+        var cell = document.createElement("th");
+        var cellText = document.createTextNode("Upcoming Trips");
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+
+        if (startIndex <= endIndex) {
+            for (var k = lastTrip; k < lastTrip + numColumns; k++) {
+                var cell = document.createElement("th");
+                var text = k + 1 - lastTrip;
+                var cellText = document.createTextNode("Departure " + text);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            tblBody.appendChild(row);
+            for (var j = startIndex; j <= endIndex; j++){
+                // creates a table row
+                var row = document.createElement("tr");
+                
+                var cell = document.createElement("th");
+                currStop = myObj.stop[j];
+                var cellText = document.createTextNode(currStop);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            
+                for (var i = lastTrip; i < lastTrip + numColumns; i++)  {
+                    // Create a <td> element and a text node, make the text
+                    // node the contents of the <td>, and put the <td> at
+                    // the end of the table row
+                    var cell = document.createElement("td");
+                    currStop = myObj.stop[j];
+                    var cellTime = new Date("August 19, 1975 " + myObj[currStop][times][i]);
+                    cellTime = cellTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                    var cellText = document.createTextNode(cellTime);
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                }
+            
+                // add the row to the end of the table body
+                tblBody.appendChild(row);
+            }
         }
         else {
-            continueLoop = false;
-        }
-        if (i == myObj.numTimes) {
-            continueLoop = false;
-        }
-    }
-
-
-    //Now i-1 is the correct entry
-    var lastTrip = i;
-    var numColumns = 5;
-    if (numColumns + lastTrip > myObj.numTimes) 
-    {
-        numColumns = myObj.numTimes - lastTrip;
-    }
-    //    var firstTrip = max(0, lastTrip-5);
-
-
-    var currStop;
-    // creating all cells
-    var row = document.createElement("tr");
-    var cell = document.createElement("th");
-    var cellText = document.createTextNode("Upcoming Trips");
-    cell.appendChild(cellText);
-    row.appendChild(cell);
-
-    if (startIndex <= endIndex) {
-        for (var k = lastTrip; k < lastTrip + numColumns; k++) {
-            var cell = document.createElement("th");
-            var text = k + 1 - lastTrip;
-            var cellText = document.createTextNode("Departure " + text);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-        }
-        tblBody.appendChild(row);
-        for (var j = startIndex; j <= endIndex; j++){
-            // creates a table row
-            var row = document.createElement("tr");
-            
-            var cell = document.createElement("th");
-            currStop = myObj.stop[j];
-            var cellText = document.createTextNode(currStop);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-        
-            for (var i = lastTrip; i < lastTrip + numColumns; i++)  {
-                // Create a <td> element and a text node, make the text
-                // node the contents of the <td>, and put the <td> at
-                // the end of the table row
-                var cell = document.createElement("td");
-                currStop = myObj.stop[j];
-                var cellTime = new Date("August 19, 1975 " + myObj[currStop][times][i]);
-                cellTime = cellTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-                var cellText = document.createTextNode(cellTime);
+            for (var k = lastTrip; k < lastTrip + numColumns; k++) {
+                var cell = document.createElement("th");
+                var text = k + 1 - lastTrip;
+                var cellText = document.createTextNode("Departure " + text);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
             }
-        
-            // add the row to the end of the table body
             tblBody.appendChild(row);
-        }
-    }
-    else {
-        for (var k = lastTrip; k < lastTrip + numColumns; k++) {
-            var cell = document.createElement("th");
-            var text = k + 1 - lastTrip;
-            var cellText = document.createTextNode("Departure " + text);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-        }
-        tblBody.appendChild(row);
-        for (var j = startIndex; j >= endIndex; j--){
-            // creates a table row
-            var row = document.createElement("tr");
-            
-            var cell = document.createElement("th");
-            currStop = myObj.stop[j];
-            var cellText = document.createTextNode(currStop);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-        
-            for (var i = lastTrip; i < lastTrip + numColumns; i++)  {
-                // Create a <td> element and a text node, make the text
-                // node the contents of the <td>, and put the <td> at
-                // the end of the table row
-                var cell = document.createElement("td");
+            for (var j = startIndex; j >= endIndex; j--){
+                // creates a table row
+                var row = document.createElement("tr");
+                
+                var cell = document.createElement("th");
                 currStop = myObj.stop[j];
-                var cellTime = new Date("August 19, 1975 " + myObj[currStop][times][i]);
-                cellTime = cellTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-                var cellText = document.createTextNode(cellTime);
+                var cellText = document.createTextNode(currStop);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
+            
+                for (var i = lastTrip; i < lastTrip + numColumns; i++)  {
+                    // Create a <td> element and a text node, make the text
+                    // node the contents of the <td>, and put the <td> at
+                    // the end of the table row
+                    var cell = document.createElement("td");
+                    currStop = myObj.stop[j];
+                    var cellTime = new Date("August 19, 1975 " + myObj[currStop][times][i]);
+                    cellTime = cellTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                    var cellText = document.createTextNode(cellTime);
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                }
+            
+                // add the row to the end of the table body
+                tblBody.appendChild(row);
             }
-        
-            // add the row to the end of the table body
-            tblBody.appendChild(row);
         }
-    }
 
-    // put the <tbody> in the <table>
-    tbl.appendChild(tblBody);
-    tblBody.classList.add("table");
-    tblBody.classList.add("table-box");
-    tbl.setAttribute("id", "remove");
-    tbl.setAttribute("border", "2");
-    // appends <table> into <body>
-    if(x==0)
-    {
-        body.appendChild(tbl);
-        x = x +1;
-    }
-    else
-    {
-        var tblRemove = document.getElementById("remove");
-        tblRemove.parentNode.removeChild(tblRemove);
-        body.appendChild(tbl);
-    }
-    // sets the border attribute of tbl to 2;
-    
+        // put the <tbody> in the <table>
+        tbl.appendChild(tblBody);
+        tblBody.classList.add("table");
+        tblBody.classList.add("table-box");
+        tbl.setAttribute("id", "remove");
+        tbl.setAttribute("border", "2");
+        // appends <table> into <body>
+        if(x==0)
+        {
+            body.appendChild(tbl);
+            x = x +1;
+        }
+        else
+        {
+            var tblRemove = document.getElementById("remove");
+            tblRemove.parentNode.removeChild(tblRemove);
+            body.appendChild(tbl);
+        }
+        // sets the border attribute of tbl to 2;
+    }     
    
 }
 
