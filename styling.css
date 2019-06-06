@@ -216,6 +216,7 @@ text-align: center;
 .button-box{
   padding-bottom:10px;
   padding-top: 20px;
+  font-size: 15px;
 }
 
 .table {
@@ -249,28 +250,56 @@ padding-right: 20px;
 
 .purple-box{
   text-align: right;
-  font-size: 14px;
+  font-size: 20px;
   border-width: 2px;
   border-style: solid;
   border-color: grey;
   padding: 5px;
   padding-top: 10px;
-  width: 40%;
+  width: 50%;
   margin-bottom: 10px;
   background-color: #f1ecd9;
 }
 
 #LSched-purple-box{
-  width: 30%;
+  width: 38%;
 }
 
 #campus-purple-box{
-  width: 38%;
+  width: 45%;
+}
+
+#CTA-purple-box{
+  width: 46%;
+}
+
+#metra-purple-box{
+  width: 47%;
 }
 
 .starting-location{
   padding-bottom: 10px;
 }
+
+.generate{
+  font-size: 30px
+}
+
+.time{
+  font-size: 18px;
+}
+
+#start{
+  font-size: 18px;
+
+}
+
+#destination{
+  font-size: 18px;
+
+}
+
+
 
 tr { display: block; float: left; }
 th, td { display: block; }
