@@ -1,34 +1,34 @@
 
-
+var myObj = new Object();
+myObj.stop = ["Noyes", "Foster", "Library", "Fisk", "Noyes L Stop", "Civic Center", "Ridge/Garnett","Emerson/Maple","Sherman/Clark","Davis/Sherman","Davis/Oak","Maple/Clark","Sherman/Emerson","Sherman/Foster","Sherman/Gaffield"];
+myObj["Noyes"] = {"times_north": ["1:01", "05:11", "06:56", "12:11", "13:36", "17:46"], "times_south": ["00:20", "04:40", "06:10", "11:30", "13:00", "17:00"] };
+myObj["Foster"] = {"times_north": ["1:00", "05:10", "06:55", "12:10", "13:35", "17:45"], "times_south": ["00:30", "04:50", "06:30", "11:45", "13:10", "17:15"] };
+myObj["Library"] = {"times_north": ["00:59", "05:09", "06:54", "12:09", "13:34", "17:44"], "times_south": ["00:40", "04:44", "06:35", "11:50", "13:15", "17:20"] };
+myObj["Fisk"] = {"times_north": ["00:59", "05:09", "06:54", "12:09", "13:34", "17:44"], "times_south": ["00:50", "05:00", "06:40", "11:55", "13:20", "17:25"] };
+myObj["Noyes L Stop"] = {"times_north": ["00:58", "05:08", "06:53", "12:08", "13:33", "17:43"], "times_south": ["00:51", "05:01", "06:41", "11:56", "13:21", "17:26"] };
+myObj["Civic Center"] = {"times_north": ["00:57", "05:07", "06:52", "12:07", "13:32", "17:42"], "times_south": ["00:52", "05:02", "06:42", "11:57", "13:22", "17:27"] };
+myObj["Ridge/Garnett"] = {"times_north": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"], "times_south": ["00:53", "05:03", "06:43", "11:58", "13:23", "17:28"] };
+myObj["Emerson/Maple"] = {"times_north": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"], "times_south": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"] };
+myObj["Sherman/Clark"] = {"times_north": ["00:54", "05:04", "06:49", "12:04", "13:29", "17:39"], "times_south": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"] };
+myObj["Davis/Sherman"] = {"times_north": ["00:53", "05:03", "06:48", "12:03", "13:28", "17:38"], "times_south": ["00:57", "05:07", "06:52", "12:07", "13:32", "17:42"] };
+myObj["Davis/Oak"] = {"times_north": ["00:52", "05:02", "06:47", "12:02", "13:27", "17:37"], "times_south": ["00:58", "05:08", "06:53", "12:08", "13:33", "17:43"] };
+myObj["Maple/Clark"] = {"times_north": ["00:51", "05:01", "06:46", "12:01", "13:26", "17:36"], "times_south": ["00:59", "05:09", "06:54", "12:09", "13:33", "17:44"] };
+myObj["Sherman/Emerson"] = {"times_north": ["00:50", "05:00", "06:45", "12:00", "13:25", "17:35"], "times_south": ["01:00", "05:10", "06:55", "12:10", "13:34", "17:45"] };
+myObj["Sherman/Foster"] = {"times_north": ["00:49", "04:59", "06:44", "11:59", "13:24", "17:34"], "times_south": ["01:01", "05:11", "06:56", "12:11", "13:35", "17:46"] };
+myObj["Sherman/Gaffield"] = {"times_north": ["00:48", "04:58", "06:43", "11:58", "13:23", "17:33"], "times_south": ["01:02", "05:12", "06:57", "12:12", "13:36", "17:47"] };
+myObj.numTimes = 6;
+var NUMSTOPS = 14;
 
 var x = 0;
 function generate_table() {
     // get the reference for the body
     var body = document.getElementsByClassName("table-box")[0];
-
+    //time input, so can make red if wrong
+    var timeform = document.getElementsByClassName("time")[0];
     // creates a <table> element and a <tbody> element
     var tbl = document.createElement("table");
     var tblBody = document.createElement("tbody");
 
-    var myObj = new Object();
-    myObj.stop = ["Noyes", "Foster", "Library", "Fisk", "Noyes L Stop", "Civic Center", "Ridge/Garnett","Emerson/Maple","Sherman/Clark","Davis/Sherman","Davis/Oak","Maple/Clark","Sherman/Emerson","Sherman/Foster","Sherman/Gaffield"];
-    myObj["Noyes"] = {"times_north": ["1:01", "05:11", "06:56", "12:11", "13:36", "17:46"], "times_south": ["00:20", "04:40", "06:10", "11:30", "13:00", "17:00"] };
-    myObj["Foster"] = {"times_north": ["1:00", "05:10", "06:55", "12:10", "13:35", "17:45"], "times_south": ["00:30", "04:50", "06:30", "11:45", "13:10", "17:15"] };
-    myObj["Library"] = {"times_north": ["00:59", "05:09", "06:54", "12:09", "13:34", "17:44"], "times_south": ["00:40", "04:44", "06:35", "11:50", "13:15", "17:20"] };
-    myObj["Fisk"] = {"times_north": ["00:59", "05:09", "06:54", "12:09", "13:34", "17:44"], "times_south": ["00:50", "05:00", "06:40", "11:55", "13:20", "17:25"] };
-    myObj["Noyes L Stop"] = {"times_north": ["00:58", "05:08", "06:53", "12:08", "13:33", "17:43"], "times_south": ["00:51", "05:01", "06:41", "11:56", "13:21", "17:26"] };
-    myObj["Civic Center"] = {"times_north": ["00:57", "05:07", "06:52", "12:07", "13:32", "17:42"], "times_south": ["00:52", "05:02", "06:42", "11:57", "13:22", "17:27"] };
-    myObj["Ridge/Garnett"] = {"times_north": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"], "times_south": ["00:53", "05:03", "06:43", "11:58", "13:23", "17:28"] };
-    myObj["Emerson/Maple"] = {"times_north": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"], "times_south": ["00:55", "05:05", "06:50", "12:05", "13:30", "17:40"] };
-    myObj["Sherman/Clark"] = {"times_north": ["00:54", "05:04", "06:49", "12:04", "13:29", "17:39"], "times_south": ["00:56", "05:06", "06:51", "12:06", "13:31", "17:41"] };
-    myObj["Davis/Sherman"] = {"times_north": ["00:53", "05:03", "06:48", "12:03", "13:28", "17:38"], "times_south": ["00:57", "05:07", "06:52", "12:07", "13:32", "17:42"] };
-    myObj["Davis/Oak"] = {"times_north": ["00:52", "05:02", "06:47", "12:02", "13:27", "17:37"], "times_south": ["00:58", "05:08", "06:53", "12:08", "13:33", "17:43"] };
-    myObj["Maple/Clark"] = {"times_north": ["00:51", "05:01", "06:46", "12:01", "13:26", "17:36"], "times_south": ["00:59", "05:09", "06:54", "12:09", "13:33", "17:44"] };
-    myObj["Sherman/Emerson"] = {"times_north": ["00:50", "05:00", "06:45", "12:00", "13:25", "17:35"], "times_south": ["01:00", "05:10", "06:55", "12:10", "13:34", "17:45"] };
-    myObj["Sherman/Foster"] = {"times_north": ["00:49", "04:59", "06:44", "11:59", "13:24", "17:34"], "times_south": ["01:01", "05:11", "06:56", "12:11", "13:35", "17:46"] };
-    myObj["Sherman/Gaffield"] = {"times_north": ["00:48", "04:58", "06:43", "11:58", "13:23", "17:33"], "times_south": ["01:02", "05:12", "06:57", "12:12", "13:36", "17:47"] };
-    myObj.numTimes = 6;
-    var NUMSTOPS = 14;
 
     //Suppose we wanted to arrive at Central by 3:00 pm, from Linden
     var start = document.getElementById("start").value;
@@ -36,7 +36,7 @@ function generate_table() {
     var time = document.getElementById("time12").value;
     if (time.toString()=="")
     {
-        timeform.style.borderColor = "red";
+        timeform.style.border = "2px solid red";
     }
     else
     {

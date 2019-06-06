@@ -28,7 +28,7 @@ function generate_table() {
     var time = document.getElementById("time12").value;
     if (time.toString()=="")
     {
-        timeform.style.borderColor = "red";
+        timeform.style.border = "2px solid red";
     }
     else
     {
