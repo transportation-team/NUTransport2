@@ -79,25 +79,25 @@ function generate_table() {
     row.appendChild(cell);
 
     if (startIndex <= endIndex) {
-        for (var j = startIndex; j <= endIndex; j++) {
+        for (var k = lastTrip; k < lastTrip + numColumns; k++) {
+            var cell = document.createElement("th");
+            var text = k + 1 - lastTrip;
+            var cellText = document.createTextNode("Departure " + text);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+        }
+        tblBody.appendChild(row);
+        for (var j = startIndex; j <= endIndex; j++){
+            // creates a table row
+            var row = document.createElement("tr");
+            
             var cell = document.createElement("th");
             currStop = myObj.stop[j];
             var cellText = document.createTextNode(currStop);
             cell.appendChild(cellText);
             row.appendChild(cell);
-        }
-        tblBody.appendChild(row);
-        for (var i = lastTrip; i < lastTrip + numColumns; i++) {
-            // creates a table row
-            var row = document.createElement("tr");
-
-            var cell = document.createElement("th");
-            var text = i + 1 - lastTrip;
-            var cellText = document.createTextNode("Departure " + text);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-
-            for (var j = startIndex; j <= endIndex; j++) {
+        
+            for (var i = lastTrip; i < lastTrip + numColumns; i++)  {
                 // Create a <td> element and a text node, make the text
                 // node the contents of the <td>, and put the <td> at
                 // the end of the table row
@@ -109,32 +109,34 @@ function generate_table() {
                 cell.appendChild(cellText);
                 row.appendChild(cell);
             }
-
+        
             // add the row to the end of the table body
             tblBody.appendChild(row);
         }
     }
     else {
-        for (var j = startIndex; j >= endIndex; j--) {
+        for (var k = lastTrip; k < lastTrip + numColumns; k++) {
+            var cell = document.createElement("th");
+            var text = k + 1 - lastTrip;
+            var cellText = document.createTextNode("Departure " + text);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+        }
+        tblBody.appendChild(row);
+        for (var j = startIndex; j >= endIndex; j--){
+            // creates a table row
+            var row = document.createElement("tr");
+            
             var cell = document.createElement("th");
             currStop = myObj.stop[j];
             var cellText = document.createTextNode(currStop);
             cell.appendChild(cellText);
             row.appendChild(cell);
-        }
-        tblBody.appendChild(row);
-        for (var i = lastTrip; i < lastTrip + numColumns; i++) {
-            // creates a table row
-            var row = document.createElement("tr");
-
-            var cell = document.createElement("th");
-            var text = i + 1 - lastTrip;
-            var cellText = document.createTextNode("Departure " + text);
-            cell.appendChild(cellText);
-            row.appendChild(cell);
-
-            for (var j = startIndex; j >= endIndex; j--) {
-                // Create a <td> element
+        
+            for (var i = lastTrip; i < lastTrip + numColumns; i++)  {
+                // Create a <td> element and a text node, make the text
+                // node the contents of the <td>, and put the <td> at
+                // the end of the table row
                 var cell = document.createElement("td");
                 currStop = myObj.stop[j];
                 var cellTime = new Date("August 19, 1975 " + myObj[currStop][times][i]);
@@ -143,7 +145,7 @@ function generate_table() {
                 cell.appendChild(cellText);
                 row.appendChild(cell);
             }
-
+        
             // add the row to the end of the table body
             tblBody.appendChild(row);
         }
