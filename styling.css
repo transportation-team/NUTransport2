@@ -258,25 +258,25 @@ padding-right: 20px;
   border-color: grey;
   padding: 5px;
   padding-top: 10px;
-  width: 50%;
+  width: 58%;
   margin-bottom: 10px;
   background-color: #f1ecd9;
 }
 
 #LSched-purple-box{
-  width: 38%;
+  width: 44%;
 }
 
 #campus-purple-box{
-  width: 45%;
-}
-
-#CTA-purple-box{
   width: 52%;
 }
 
+#CTA-purple-box{
+  width: 62%;
+}
+
 #metra-purple-box{
-  width: 47%;
+  width: 60%;
 }
 
 .starting-location{
