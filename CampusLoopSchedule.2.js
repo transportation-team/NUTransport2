@@ -33,7 +33,7 @@ function generate_table() {
     }
     else
     {
-        timeform.style.borderColor = null;
+        timeform.style.border = null;
         var times;
         startIndex = myObj.stop.indexOf(start);
         endIndex = myObj.stop.indexOf(destination);
