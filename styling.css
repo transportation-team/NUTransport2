@@ -94,11 +94,11 @@ h2 {
 }
 
 .info {
-    margin: 20px 0px 20px 20px;
+    margin: 20px 0px 25px 25px;
 }
 
 .home-link {
-    font-size: 40px;
+    font-size: 30px;
     color: purple;
 }
 
@@ -126,7 +126,8 @@ h2 {
 }
 
 .home-info {
-  font-size: 1.3em;
+  font-size: 1.2em;
+  margin-top: 5px;
 }
 
 /* Info page  */
