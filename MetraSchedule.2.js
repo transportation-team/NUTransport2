@@ -1,6 +1,7 @@
 
 var myObj = new Object();
-myObj.stop = ["Central/Green Bay", "Davis", "Main", "Rogers Park", "Ravenswood","Clybourn", "Ogilvie"];
+myObj.stop = ["Wilmette","Central/Green Bay", "Davis", "Main", "Rogers Park", "Ravenswood","Clybourn", "Ogilvie"];
+myObj["Wilmette"] = {"times_north": ["1:01", "05:11", "06:56", "12:11", "13:36", "17:46"], "times_south": ["00:20", "04:40", "06:10", "11:30", "13:00", "17:00"] };
 myObj["Central/Green Bay"] = {"times_north": ["1:01", "05:11", "06:56", "12:11", "13:36", "17:46"], "times_south": ["00:20", "04:40", "06:10", "11:30", "13:00", "17:00"] };
 myObj["Davis"] = {"times_north": ["1:00", "05:10", "06:55", "12:10", "13:35", "17:45"], "times_south": ["00:30", "04:50", "06:30", "11:45", "13:10", "17:15"] };
 myObj["Main"] = {"times_north": ["00:59", "05:09", "06:54", "12:09", "13:34", "17:44"], "times_south": ["00:50", "05:00", "06:40", "11:55", "13:20", "17:25"] };
