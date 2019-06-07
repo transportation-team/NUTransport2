@@ -1,5 +1,6 @@
 
 var x = 0;
+var y = 0;
 
 var myObj = new Object();
 myObj.stop = ["Linden", "Central", "Noyes", "Foster", "Davis","Dempster", "Main", "Howard"];
@@ -29,11 +30,25 @@ function generate_table() {
     var time = document.getElementById("time12").value;
     if (time.toString()=="")
     {
+        y = 1;
         timeform.style.border = "2px solid red";
+        var errorMessage = document.createElement("p");
+        errorMessage.id = "error-text"
+        errorMessage.innerHTML = "Invalid Time Input";
+        errorMessage.style.color = "red";
+        errorMessage.style.fontSize = ".7em";
+        errorMessage.style.marginBottom = "-10px";
+        var diverr = document.getElementById("error-message");
+        diverr.appendChild(errorMessage);
     }
     else
     {
         timeform.style.border = null;
+        if (y==1)
+        {
+            var errorMessage = document.getElementById("error-text");
+            errorMessage.parentNode.removeChild(errorMessage);
+        }
         var times;
         startIndex = myObj.stop.indexOf(start);
         endIndex = myObj.stop.indexOf(destination);
