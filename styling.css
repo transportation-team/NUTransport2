@@ -140,8 +140,8 @@ h2 {
 }
 
 .tips-text {
-  margin: 12px 0px;
-  font-size: 26px;
+  margin: 20px 0px;
+  font-size: 22px;
 }
 
 .schedule-link {
@@ -274,6 +274,10 @@ padding-right: 20px;
 
 #metra-purple-box{
   width: 57%;
+}
+
+#evanston-purple-box{
+  width: 67%;
 }
 
 .starting-location{
