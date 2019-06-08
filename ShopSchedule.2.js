@@ -60,11 +60,12 @@ function generate_table() {
         if (startIndex > endIndex)
         {
             times = "times_north"
-            myObj.numTimes = 6; //Number of north times
+            myObj.numTimes = 7; //Number of north times
         }
         else
         {
             times = "times_south"
+            myObj.numTimes = 6; //Number of south times
         }
 
         time = time.split(":");
