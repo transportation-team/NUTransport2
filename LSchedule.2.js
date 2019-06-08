@@ -73,7 +73,7 @@ function generate_table() {
         //finds first time after when input time is
         while (continueLoop == true) {
             currTime = myObj[start][times][i];
-            currTime = currTime.split(":")
+            currTime = currTime.split(":");
             var currTimeConverted = parseInt(currTime[0]) * 60 + parseInt(currTime[1]);
             if (currTimeConverted < timeConverted) {
                 i = i + 1;

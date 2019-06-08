@@ -15,6 +15,7 @@ var NUMSTOPS = 6;
 var x = 0;
 var y = 0;
 function generate_table() {
+    console.log(myObj["Wilmette"]['times_south'].length);
     // get the reference for the body
     var body = document.getElementsByClassName("table-box")[0];
     //time input, so can make red if wrong
@@ -54,13 +55,13 @@ function generate_table() {
         endIndex = myObj.stop.indexOf(destination);
         if (startIndex > endIndex)
         {
-            times = "times_north"
-            myObj.numTimes = 148; //Number of north times
+            times = "times_north";
+            myObj.numTimes = 24; //Number of north times
         }
         else
         {
-            times = "times_south"
-            myObj.numTimes = 121; //Number of south times
+            times = "times_south";
+            myObj.numTimes = 30; //Number of south times
         }
 
         time = time.split(":");
@@ -74,7 +75,7 @@ function generate_table() {
         //finds first time after when input time is
         while (continueLoop == true) {
             currTime = myObj[start][times][i];
-            currTime = currTime.split(":")
+            currTime = currTime.split(":");
             var currTimeConverted = parseInt(currTime[0]) * 60 + parseInt(currTime[1]);
             if (currTimeConverted < timeConverted) {
                 i = i + 1;
@@ -96,6 +97,7 @@ function generate_table() {
             numColumns = myObj.numTimes - lastTrip;
         }
         //    var firstTrip = max(0, lastTrip-5);
+        console.log(numColumns);
         if (numColumns == 0)
         {
             y = 1;
